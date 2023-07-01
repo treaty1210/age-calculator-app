@@ -22,22 +22,35 @@
 </head>
 <body>
 
-  Day
-  DD
+  <div class="container">
 
-  Month
-  MM
+    <div class="day">
+      <label for="insertDay">Day</label>
+      <input type="number" name="day" id="insertDay" min="1" max="31" placeholder="DD" required>
+    </div>
 
-  Year
-  YYYY
+    <div class="month">
+      <label for="insertMonth">Month</label>
+      <input type="number" name="month" id="insertMonth" min="1" max="12" placeholder="MM" required>
+    </div>
+    
+    <div class="year">
+      <label for="insertYear">Year</label>
+      <input type="number" name="year" id="insertYear" placeholder="YYYY" required>
+    </div>
 
-  -- years
-  -- months
-  -- days
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    <div class="ageResult">
+      <div><span class="valYear">--</span>&nbsp; years</div>
+      <div><span class="valMonth">--</span>&nbsp; months</div>
+      <div><span class="valDay">--</span>&nbsp; days</div>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+
   </div>
+  
 </body>
 </html>
