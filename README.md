@@ -77,6 +77,7 @@ If you want more help with writing markdown, we'd recommend checking out [The Ma
 ### Useful resources
 
 - [Resource 1](https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp) - This helped me figure out how to remove arrows from input number.
+- [Resource 2](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) - This helped me figure out how to pull input value to set up rest of functions.
 
 ## Author
 
