@@ -39,9 +39,9 @@
     }
 
     .arrow {
-        position: absolute;
-        top: 98px;
-        left: 150px;
+        position: relative;
+        bottom: 34px;
+        left: 120px;
     }
 }
 
@@ -98,9 +98,11 @@
     }
 
     .arrow {
-        position: absolute;
-        top: 142px;
-        left: 1140px;
+        position: relative;
+        bottom: 40px;
+        left: 430px;
+        width: 60px;
+        height: 58px; 
     }
 }
 
