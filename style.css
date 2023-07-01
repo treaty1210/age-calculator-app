@@ -8,6 +8,10 @@
 
     .ageCalc {
         width: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     #insertDay, #insertMonth, #insertYear {
@@ -17,12 +21,87 @@
     label {
         position: relative;
         left: 10px;
+        justify-self: start;
+    }
+
+    .day, .month, .year {
+        display: grid;
+        justify-items: center;
+    }
+
+    .ageResult {
+        font-size: 32px;
+    }
+
+    .divider {
+        width: 310px;
+        margin-bottom: 30px;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 98px;
+        left: 150px;
     }
 }
 
 /* Desktop/PC */
 @media only screen and (min-width: 769px) {
+    body {
+        position: relative;
+        top: 270px;
+    }
+    
+    label {
+        justify-self: start;
+    }
 
+    #insertDay, #insertMonth, #insertYear {
+        width: 40%;
+        height: 60%;
+    }
+
+    .container {
+        min-height: 500px;
+    }
+
+    .ageCalc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .day, .month, .year {
+        display: grid;
+        justify-items: start;
+    }
+
+    .month, .year {
+        position: relative;
+        right: 40px;
+    }
+
+    .year {
+        margin-left: -50px;
+    }
+
+    .ageResult {
+        position: relative;
+        right: 100px;
+        font-size: 52px;
+    }
+
+    .divider {
+        width: 510px;
+        margin-bottom: 30px;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 142px;
+        left: 1140px;
+    }
 }
 
 
@@ -45,10 +124,6 @@ body {
     border-radius: 12px;
     border-bottom-right-radius: 35%;
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .inputField {
@@ -57,16 +132,13 @@ body {
     margin-bottom: 48px;
 }
 
-.day, .month, .year {
-    display: grid;
-    justify-items: center;
-}
+
 
 label {
     color: hsl(0, 1%, 44%);
-    display: grid;
+    /* display: grid;
     justify-self: start;
-    align-self: center;
+    align-self: center; */
 }
 
 input {
@@ -95,7 +167,6 @@ input[type=number] {
 .ageResult {
     font-weight: 800;
     font-style: italic;
-    font-size: 32px;
 }
 
 .ageResult > div > span {
@@ -105,4 +176,16 @@ input[type=number] {
 .attribution {
     position: fixed;
     bottom: 0;
+}
+
+.divider {
+    background-color: hsl(0, 0%, 86%);
+    height: 1px;
+}
+
+.arrow {
+    background-color: hsl(259, 100%, 65%);
+    border: 1px solid hsl(259, 100%, 65%);
+    border-radius: 50%;
+    padding: 10px;
 }
