@@ -23,29 +23,30 @@
 <body>
 
   <div class="container">
-    
-    <div class="inputField">
+    <div class="ageCalc">
+      <div class="inputField">
 
-      <div class="day">
-        <label for="insertDay">Day</label>
-        <input type="number" name="day" id="insertDay" min="1" max="31" placeholder="DD" required>
-      </div>
+        <div class="day">
+          <label for="insertDay">Day</label>
+          <input type="number" name="day" id="insertDay" min="1" max="31" placeholder="DD" required>
+        </div>
 
-      <div class="month">
-        <label for="insertMonth">Month</label>
-        <input type="number" name="month" id="insertMonth" min="1" max="12" placeholder="MM" required>
+        <div class="month">
+          <label for="insertMonth">Month</label>
+          <input type="number" name="month" id="insertMonth" min="1" max="12" placeholder="MM" required>
+        </div>
+        
+        <div class="year">
+          <label for="insertYear">Year</label>
+          <input type="number" name="year" id="insertYear" placeholder="YYYY" required>
+        </div>
+        
       </div>
-      
-      <div class="year">
-        <label for="insertYear">Year</label>
-        <input type="number" name="year" id="insertYear" placeholder="YYYY" required>
+      <div class="ageResult">
+        <div><span class="valYear">----</span>&nbsp; years</div>
+        <div><span class="valMonth">--</span>&nbsp; months</div>
+        <div><span class="valDay">--</span>&nbsp; days</div>
       </div>
-      
-    </div>
-    <div class="ageResult">
-      <div><span class="valYear">--</span>&nbsp; years</div>
-      <div><span class="valMonth">--</span>&nbsp; months</div>
-      <div><span class="valDay">--</span>&nbsp; days</div>
     </div>
 
     <div class="attribution">
