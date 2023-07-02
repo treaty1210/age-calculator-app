@@ -51,7 +51,7 @@ function checkDay() { //checks for validity of day
         if (dayValue < 1 || dayValue > 30) {
             validDay = false; 
         } else {
-            validDay = true;
+            validDay = false;
         }
     }
 }
@@ -88,7 +88,9 @@ function checkMonth() { //checks for validity of month
 
 let validYear = false;
 
-year.addEventListener("input", checkYear)
+year.addEventListener("input", () => {
+    checkDate();
+})
 
 function checkYear() { //checks for validity of year
     let yearValue = year.value
@@ -100,4 +102,13 @@ function checkYear() { //checks for validity of year
     } else {
         validYear = true;
     } 
+}
+
+//check all values
+
+const checkDate = () => {
+    checkDay();
+    checkMonth();
+    checkYear();
+    console.log("valid day:", validDay, "valid month:", validMonth, "is feb:", feb, "valid year:", validYear, "is leap:", leapYear)
 }
