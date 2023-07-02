@@ -18,58 +18,86 @@ let valDay = document.querySelector(".valDay");
 
 
 
-//check Day
+
 let validDay = false;
 
 day.addEventListener("input", checkDay)
 
-function checkDay(e) {
-    let dayValue = e.target.value
-    console.log(dayValue)
+function checkDay() { //checks for validity of day
+    let dayValue = day.value
 
-    if (dayValue < 1 || dayValue > 31) {
-        validDay = false; 
-        //make this change box to red for error with error message, will probably have to add a div below and insert text
-    } else {
-        validDay = true;
-        //this will have to remove any text in that div if error ran first
+    if (month.value == 2 && year.value % 4 == 0) { //for feb with leap
+        if (dayValue < 1 || dayValue > 29) {
+            validDay = false;
+        } else {
+            validDay = true;
+        }
+    } else if (month.value == 2 && year.value % 4 != 0) { //for feb and no leap
+        if (dayValue < 1 || dayValue > 28) {
+            validDay = false;
+        } else {
+            validDay = true;
+        }
+    } else if (month.value == 1 || month.value == 3 || month.value == 5 || month.value == 7 || month.value == 8 ||
+        month.value == 10 || month.value == 12) { //for months with 31 days
+        if (dayValue < 1 || dayValue > 31) {
+            validDay = false; 
+            //make this change box to red for error with error message, will probably have to add a div below and insert text
+        } else {
+            validDay = true;
+            //this will have to remove any text in that div if error ran first
+        }
+    } else if (month.value == 2 || month.value == 4 || month.value == 6 || month.value == 9 || month.value == 11) { //for months with 30 days
+        if (dayValue < 1 || dayValue > 30) {
+            validDay = false; 
+        } else {
+            validDay = true;
+        }
     }
-    console.log(validDay)
 }
 
-//check Month
+
 let validMonth = false;
+let feb = false; //set up for 28/29 days
+let leapYear = false; //leap year
 
 month.addEventListener("input", checkMonth)
 
-function checkMonth(e) {
-    let monthValue = e.target.value
-    console.log(monthValue)
+function checkMonth() { //checks for validity of month
+    let monthValue = month.value
 
-    if (monthValue < 1 || monthValue > 12) {
+    if (monthValue == 2 && year.value % 4 === 0) {
+        validMonth = true;
+        feb = true;
+        leapYear = true;
+    } else if (monthValue == 2 && year.value % 4 != 0) {
+        validMonth = true;
+        feb = true;
+        leapYear = false;
+    } else if (monthValue < 1 || monthValue > 12) {
         validMonth = false;
+        feb = false;
+        leapYear = false;
     } else {
         validMonth = true;
+        feb = false;
+        leapYear = false;
     }
-    console.log(validMonth)
 }
 
-//check Year
+
 let validYear = false;
 
 year.addEventListener("input", checkYear)
 
-function checkYear(e) {
-    let yearValue = e.target.value
-    console.log(yearValue)
+function checkYear() { //checks for validity of year
+    let yearValue = year.value
 
     let currentYear = new Date().getFullYear();
-    console.log(currentYear)
 
     if (yearValue < 1 || yearValue > currentYear) { //pull current year to check
         validYear = false;
     } else {
         validYear = true;
     } 
-    console.log(validYear)
 }
