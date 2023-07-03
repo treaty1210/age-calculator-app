@@ -3,6 +3,8 @@ let day = document.querySelector("#insertDay");
 let month = document.querySelector("#insertMonth");
 let year = document.querySelector("#insertYear");
 let valDay = document.querySelector(".valDay");
+let valMonth = document.querySelector(".valMonth");
+let valYear = document.querySelector(".valYear");
 let errorDay = document.querySelector(".errorDay");
 let errorMonth = document.querySelector(".errorMonth");
 let errorYear = document.querySelector(".errorYear");
@@ -122,7 +124,7 @@ function checkMonth() { //checks for validity of month
 
 
 year.addEventListener("input", () => {
-    checkDate();
+    ageCalc();
 })
 
 function checkYear() { //checks for validity of year
@@ -184,14 +186,24 @@ const ageCalc = () => { //create function that will only run if everything is va
     checkDate();
     let currentDate = new Date();
     //currentYear should have already been grabbed earlier
+    let currentYear = currentDate.getFullYear();
     let currentMonth = currentDate.getMonth() + 1;
     let currentDay = currentDate.getDate();
     if (validDay == true && validMonth == true && validYear == true) {
-        if (currentDay < dayValue) {
-            valDay.textContent = (currentDay - dayValue + 30);
-            // currentMonth = currentMonth - 1;
+        if (currentDay < day.value) {
+            valDay.textContent = (currentDay - day.value + 30);
+            currentMonth = currentMonth - 1;
         } else {
-            valDay.textContent = (currentDay - dayValue);
+            valDay.textContent = (currentDay - day.value);
         }
-    }
+
+        if (currentMonth < month.value) {
+            valMonth.textContent = (currentMonth - month.value + 12);
+            currentYear = currentYear - 1; 
+        } else {
+            valMonth.textContent = (currentMonth - month.value);
+        }
+
+        valYear.textContent = (currentYear - year.value);
+    }  
 }
