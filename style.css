@@ -168,6 +168,11 @@ input {
     border-radius: 5px;
 }
 
+input:focus {
+    outline: none;
+    border: 2px solid hsl(259, 100%, 65%);
+}
+
 .error {
     border: 2px solid hsl(0, 100%, 67%);
     border-radius: 5px;
@@ -220,4 +225,8 @@ input[type=number] {
     border: 1px solid hsl(259, 100%, 65%);
     border-radius: 50%;
     padding: 10px;
+}
+
+.arrow:hover {
+    background-color: hsl(0, 0%, 8%);
 }
