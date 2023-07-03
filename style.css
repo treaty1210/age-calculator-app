@@ -43,6 +43,14 @@
         bottom: 34px;
         left: 120px;
     }
+
+    .errorDay, .errorMonth, .errorYear {
+        color: hsl(0, 100%, 67%);
+        margin-top: 8px;
+        font-size: 10px;
+        position: relative;
+        left: 10px;
+    }
 }
 
 /* Desktop/PC */
@@ -103,6 +111,13 @@
         left: 430px;
         width: 60px;
         height: 58px; 
+    }
+
+    .errorDay, .errorMonth, .errorYear {
+        color: hsl(0, 100%, 67%);
+        margin-bottom: -30px;
+        margin-top: 8px;
+        font-size: 12px;
     }
 }
 
