@@ -3,6 +3,12 @@ let day = document.querySelector("#insertDay");
 let month = document.querySelector("#insertMonth");
 let year = document.querySelector("#insertYear");
 let valDay = document.querySelector(".valDay");
+let errorDay = document.querySelector(".errorDay");
+let errorMonth = document.querySelector(".errorMonth");
+let errorYear = document.querySelector(".errorYear");
+let labelDay = document.querySelector("body > div > div.ageCalc > div.inputField > div.day > label");
+let labelMonth = document.querySelector("body > div > div.ageCalc > div.inputField > div.month > label");
+let labelYear = document.querySelector("body > div > div.ageCalc > div.inputField > div.year > label");
 
 
 // day.addEventListener("input", checkDay);
@@ -51,7 +57,7 @@ function checkDay() { //checks for validity of day
         if (dayValue < 1 || dayValue > 30) {
             validDay = false; 
         } else {
-            validDay = false;
+            validDay = true;
         }
     }
 }
@@ -111,4 +117,34 @@ const checkDate = () => {
     checkMonth();
     checkYear();
     console.log("valid day:", validDay, "valid month:", validMonth, "is feb:", feb, "valid year:", validYear, "is leap:", leapYear)
+    if (validDay == false) {
+        errorDay.innerText = "Must be a valid day";  
+        day.className = "error";
+        labelDay.className = "errorLabel";
+    } else if (validDay == true) {
+        errorDay.textContent = "";
+        day.className = "";
+        labelDay.className = "";
+    }
+
+    if (validMonth == false) {
+        errorMonth.textContent = "Must be a valid month"
+        month.className = "error";
+        labelMonth.className = "errorLabel";
+    } else if (validMonth == true) {
+        errorMonth.textContent = "";
+        month.className = "";
+        labelMonth.className = "";
+    }
+
+    if (validYear == false) {
+        errorYear.textContent = "Must be a valid year"
+        year.className = "error";
+        labelYear.className = "errorLabel";
+    } else if (validYear == true) {
+        errorYear.textContent = "";
+        year.className = "";
+        labelYear.className = "";
+    }
 }
+
