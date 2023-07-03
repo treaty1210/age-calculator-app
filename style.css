@@ -176,6 +176,12 @@ input {
 .errorLabel {
     color: hsl(0, 100%, 67%);
 }
+
+.empty {
+    color: hsl(0, 100%, 67%);
+    font-style: italic;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -185,6 +191,7 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type=number] {
+    appearance: textfield;
   -moz-appearance: textfield;
 }
 
