@@ -11,6 +11,7 @@ let errorYear = document.querySelector(".errorYear");
 let labelDay = document.querySelector("body > div > div.ageCalc > div.inputField > div.day > label");
 let labelMonth = document.querySelector("body > div > div.ageCalc > div.inputField > div.month > label");
 let labelYear = document.querySelector("body > div > div.ageCalc > div.inputField > div.year > label");
+let arrowBtn = document.querySelector(".arrow");
 
 //global var
 let validDay = false;
@@ -18,17 +19,6 @@ let validMonth = false;
 let feb = false; //set up for 28/29 days
 let validYear = false;
 let leapYear = false; //leap year
-
-// day.addEventListener("input", checkDay);
-
-// function dayValue(e) {
-//     checkDay()
-//     if (validDay == true) {
-//         valDay.textContent = e.target.value //this would replace the information in valDay span
-//     } else {
-//         return false; 
-//     }
-// }
 
 if (day.value == "") {
     day.className = "error";
@@ -50,11 +40,6 @@ if (year.value == "") {
     errorYear.textContent = "This field is required";
     labelYear.className = "errorLabel";
 }
-
-
-
-
-day.addEventListener("input", checkDay)
 
 function checkDay() { //checks for validity of day
     let dayValue = day.value
@@ -89,11 +74,6 @@ function checkDay() { //checks for validity of day
     } 
 }
 
-
-
-
-month.addEventListener("input", checkMonth)
-
 function checkMonth() { //checks for validity of month
     let monthValue = month.value
     errorMonth.classList.remove("empty");
@@ -120,12 +100,6 @@ function checkMonth() { //checks for validity of month
     }
 }
 
-
-
-
-year.addEventListener("input", () => {
-    ageCalc();
-})
 
 function checkYear() { //checks for validity of year
     let yearValue = year.value
@@ -181,14 +155,15 @@ const checkDate = () => {
 
 
 
-//
+
 const ageCalc = () => { //create function that will only run if everything is valid
     checkDate();
+
     let currentDate = new Date();
-    //currentYear should have already been grabbed earlier
     let currentYear = currentDate.getFullYear();
     let currentMonth = currentDate.getMonth() + 1;
     let currentDay = currentDate.getDate();
+
     if (validDay == true && validMonth == true && validYear == true) {
         if (currentDay < day.value) {
             valDay.textContent = (currentDay - day.value + 30);
@@ -207,3 +182,7 @@ const ageCalc = () => { //create function that will only run if everything is va
         valYear.textContent = (currentYear - year.value);
     }  
 }
+
+arrowBtn.addEventListener("click", () => {
+    ageCalc();
+})
