@@ -10,6 +10,12 @@ let labelDay = document.querySelector("body > div > div.ageCalc > div.inputField
 let labelMonth = document.querySelector("body > div > div.ageCalc > div.inputField > div.month > label");
 let labelYear = document.querySelector("body > div > div.ageCalc > div.inputField > div.year > label");
 
+//global var
+let validDay = false;
+let validMonth = false;
+let feb = false; //set up for 28/29 days
+let validYear = false;
+let leapYear = false; //leap year
 
 // day.addEventListener("input", checkDay);
 
@@ -22,16 +28,35 @@ let labelYear = document.querySelector("body > div > div.ageCalc > div.inputFiel
 //     }
 // }
 
+if (day.value == "") {
+    day.className = "error";
+    errorDay.classList.add("empty");
+    errorDay.textContent = "This field is required";
+    labelDay.className = "errorLabel";
+}
+
+if (month.value == "") {
+    month.className = "error";
+    errorMonth.classList.add("empty");
+    errorMonth.textContent = "This field is required";
+    labelMonth.className = "errorLabel";
+}
+
+if (year.value == "") {
+    year.className = "error";
+    errorYear.classList.add("empty");
+    errorYear.textContent = "This field is required";
+    labelYear.className = "errorLabel";
+}
 
 
 
-let validDay = false;
 
 day.addEventListener("input", checkDay)
 
 function checkDay() { //checks for validity of day
     let dayValue = day.value
-
+    errorDay.classList.remove("empty");
     if (month.value == 2 && year.value % 4 == 0) { //for feb with leap
         if (dayValue < 1 || dayValue > 29) {
             validDay = false;
@@ -59,19 +84,17 @@ function checkDay() { //checks for validity of day
         } else {
             validDay = true;
         }
-    }
+    } 
 }
 
 
-let validMonth = false;
-let feb = false; //set up for 28/29 days
-let leapYear = false; //leap year
+
 
 month.addEventListener("input", checkMonth)
 
 function checkMonth() { //checks for validity of month
     let monthValue = month.value
-
+    errorMonth.classList.remove("empty");
     if (monthValue == 2 && year.value % 4 === 0) {
         validMonth = true;
         feb = true;
@@ -84,6 +107,10 @@ function checkMonth() { //checks for validity of month
         validMonth = false;
         feb = false;
         leapYear = false;
+    } else if (monthValue == "") {
+        validMonth = false;
+        feb = false;
+        leapYear = false;
     } else {
         validMonth = true;
         feb = false;
@@ -92,7 +119,7 @@ function checkMonth() { //checks for validity of month
 }
 
 
-let validYear = false;
+
 
 year.addEventListener("input", () => {
     checkDate();
@@ -100,10 +127,13 @@ year.addEventListener("input", () => {
 
 function checkYear() { //checks for validity of year
     let yearValue = year.value
+    errorYear.classList.remove("empty");
 
     let currentYear = new Date().getFullYear();
 
     if (yearValue < 1 || yearValue > currentYear) { //pull current year to check
+        validYear = false;
+    } else if (yearValue == "") {
         validYear = false;
     } else {
         validYear = true;
@@ -111,7 +141,6 @@ function checkYear() { //checks for validity of year
 }
 
 //check all values
-
 const checkDate = () => {
     checkDay();
     checkMonth();
@@ -148,3 +177,21 @@ const checkDate = () => {
     }
 }
 
+
+
+//
+const ageCalc = () => { //create function that will only run if everything is valid
+    checkDate();
+    let currentDate = new Date();
+    //currentYear should have already been grabbed earlier
+    let currentMonth = currentDate.getMonth() + 1;
+    let currentDay = currentDate.getDate();
+    if (validDay == true && validMonth == true && validYear == true) {
+        if (currentDay < dayValue) {
+            valDay.textContent = (currentDay - dayValue + 30);
+            // currentMonth = currentMonth - 1;
+        } else {
+            valDay.textContent = (currentDay - dayValue);
+        }
+    }
+}
