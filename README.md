@@ -30,7 +30,6 @@ Users should be able to:
   - The date is invalid e.g. 31/04/1991 (there are 30 days in April)
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
-- **Bonus**: See the age numbers animate to their final number when the form is submitted
 
 ### Links
 
@@ -52,32 +51,13 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+I learned how to use the Date prototype to create a function that can use the information from the current date to run functions to calculate age. I also learned how to grab the value from the input boxes so that they can be used to set up the functions. Setting constraints using if statements were also a big part of the learning process.
 
 ### Useful resources
 
 - [Resource 1](https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp) - This helped me figure out how to remove arrows from input number.
 - [Resource 2](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) - This helped me figure out how to pull input value to set up rest of functions.
+-[Resource 3](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) - Used to figure out how to pull the current date to use in functions.
 
 ## Author
 
