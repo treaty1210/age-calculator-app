@@ -168,6 +168,14 @@ input {
     border-radius: 5px;
 }
 
+.error {
+    border: 2px solid hsl(0, 100%, 67%);
+    border-radius: 5px;
+}
+
+.errorLabel {
+    color: hsl(0, 100%, 67%);
+}
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
